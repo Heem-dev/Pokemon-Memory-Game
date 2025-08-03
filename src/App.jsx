@@ -17,11 +17,13 @@ function App() {
       })
   }, [])
 
+  const responsiveTextSizes =
+    " text-[0.6rem] sm:text-[0.8rem] xl:text-[1rem] 2xl:text-[1.4rem] "
   return (
     <>
-      <div className="mainContainer flex flex-col  sm:text-2xl md:text-3xl lg:text-4xl">
+      <div className={`mainContainer flex flex-col  ${responsiveTextSizes} `}>
         <div className="titleContainer bg-background p-2 pb-3 w-[100%] text-center h-fit">
-          <p className=" text-black font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <p className=" text-black font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
             Pokemon Memory Card Game
           </p>
         </div>
@@ -36,7 +38,7 @@ function App() {
             <div className="bestScore">Best Score: 12</div>
           </div>
         </div>
-        <div className="gameContainerBG flex flex-col items-center justify-center max-w-[100%] max-h-[100%]">
+        <div className="gameContainerBG flex flex-col items-center justify-center">
           <div className="gameContainer grid-cols-3 md:grid-cols-4 ">
             <CardsGrid pokemonData={pokemonData}></CardsGrid>
           </div>
