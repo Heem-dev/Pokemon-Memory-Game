@@ -1,14 +1,31 @@
+import CardsGrid from "./componenets/cardsGrid"
+import { useState, useEffect } from "react"
+
 function App() {
-  const pageTitle = (
-    <p className="text-2xl text-black font-bold">Pokemon Memory Card Game</p>
-  )
+  const [pokemonData, setPokemonData] = useState([])
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=12")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Pokemon data fetched:", data.results)
+        console.log("App.jsx Pokemon data type:", typeof data.results)
+
+        setPokemonData(data.results)
+      })
+      .catch((error) => {
+        console.error("Error fetching Pokemon data:", error)
+      })
+  }, [])
+
   return (
     <>
-      <div className="mainContainer flex flex-col w-[100vw] h-[100vh]">
+      <div className="mainContainer flex flex-col  sm:text-2xl md:text-3xl lg:text-4xl">
         <div className="titleContainer bg-background p-2 pb-3 w-[100%] text-center h-fit">
-          {pageTitle}
+          <p className=" text-black font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            Pokemon Memory Card Game
+          </p>
         </div>
-        <div className="infoContainer bg-background ">
+        <div className="infoContainer bg-background pr-[10%] pl-[10%] pb-4">
           <div className="gameDescription">
             <div className="descriptionText text-center">
               Try to click all images only once!
@@ -19,7 +36,11 @@ function App() {
             <div className="bestScore">Best Score: 12</div>
           </div>
         </div>
-        <div className="gameContainer bg-third h-[100%]"></div>
+        <div className="gameContainerBG flex flex-col items-center justify-center max-w-[100%] max-h-[100%]">
+          <div className="gameContainer grid-cols-3 md:grid-cols-4 ">
+            <CardsGrid pokemonData={pokemonData}></CardsGrid>
+          </div>
+        </div>
         <div className="footer"></div>
       </div>
     </>

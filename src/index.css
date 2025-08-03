@@ -18,7 +18,9 @@
   --color-third: #3b4cca;
   --color-background: #b3a125;
 }
-
+body {
+  background-color: rgb(28, 28, 77);
+}
 .titleContainer {
   text-shadow: 0 0 5px var(--color-secondary);
 }
@@ -29,4 +31,41 @@
 .bestScore {
   color: blue;
   text-shadow: 0 0 5px white;
+}
+
+.gameContainer {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+
+  padding-top: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 6, 6, 0.589);
+  color: rgb(239, 248, 106);
+
+  padding: 10px;
+  margin: 10px;
+
+  cursor: pointer;
+
+  aspect-ratio: 0.7 / 1;
+  height: auto;
+
+  border: 2px solid rgb(214, 180, 29);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
 }
