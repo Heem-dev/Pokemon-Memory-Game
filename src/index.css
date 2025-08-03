@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: pokemonFont;
+  src: url(assets/PokemonFont.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: pokemonFont;
+}
+
+@theme {
+  --color-*: initial;
+  --color-primary: #ff0000;
+  --color-secondary: #cc0000;
+  --color-third: #3b4cca;
+  --color-background: #b3a125;
+}
+
+.titleContainer {
+  text-shadow: 0 0 5px var(--color-secondary);
+}
+
+.currentScore {
+  text-shadow: 0 0 5px white;
+}
+.bestScore {
+  color: blue;
+  text-shadow: 0 0 5px white;
+}
