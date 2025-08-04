@@ -33,16 +33,6 @@ body {
   text-shadow: 0 0 5px white;
 }
 
-.gameContainer {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-
-  padding-top: 10px;
-
-  justify-content: center;
-  align-items: center;
-}
-
 .card {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 
