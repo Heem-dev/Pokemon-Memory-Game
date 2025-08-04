@@ -1,14 +1,17 @@
 import Card from "./cards"
 
-export default function CardsGrid({ pokemonData }) {
+export default function CardsGrid({ shuffledData, onCardClick }) {
   return (
     <>
-      {pokemonData.map((card) => {
-        // Extract poke ID from URL
-        const pokeID = card.url.match(/\/(\d+)\//)[1]
-
-        const imgLink = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeID}.png`
-        return <Card key={pokeID} name={card.name} image={imgLink} />
+      {shuffledData.map((card) => {
+        return (
+          <Card
+            key={card.id}
+            name={card.name}
+            image={card.image}
+            onClick={() => onCardClick(card.id)}
+          />
+        )
       })}
     </>
   )
